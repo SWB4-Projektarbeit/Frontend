@@ -1,0 +1,39 @@
+<div class="rooms-page">
+  <header class="rooms-header">
+    <h1>Räume</h1>
+    <div class="header-controls">
+      <input type="text" placeholder="Raum suchen..." class="search-input" />
+      <button (click)="logout()" class="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <div class="rooms-content">
+    <div class="sidebar">
+      <div class="filter-group">
+        <h3>Filter</h3>
+        <select [(ngModel)]="selectedFloor" (change)="onFilterChange()" class="filter-select">
+          <option>Alle Stockwerke</option>
+          <option>EG</option>
+          <option>1. OG</option>
+          <option>2. OG</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="rooms-grid">
+      <div *ngIf="loading" class="loading">Laden...</div>
+      <div *ngIf="error" class="error">{{ error }}</div>
+      <div *ngIf="!loading && appointments.length === 0" class="empty">Keine Räume verfügbar</div>
+
+      <div *ngFor="let room of appointments" class="room-card">
+        <div class="room-id">{{ room.roomUid }}</div>
+        <div class="room-details">
+          <div class="time-range">
+            {{ room.startAt | slice:11:16 }} — {{ room.endAt | slice:11:16 }}
+          </div>
+          <div class="room-type">{{ room.eventTypeKey || 'Event' }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
