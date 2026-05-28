@@ -9,7 +9,11 @@ export interface Appointment {
   endAt: string;
   eventTypeKey: string;
   externalObjectUid: number;
+<<<<<<< HEAD
+  resourceUId: number;
+=======
   resourceUid: number;
+>>>>>>> 7e1f99e (Add Keycloak and New Frontend with BFF authentication implementation)
   resourceUrl: string;
   roomUid: number;
   startAt: string;
@@ -23,6 +27,10 @@ export class RoomsService {
   constructor(private http: HttpClient) {}
 
   getAppointments(): Observable<Appointment[]> {
+<<<<<<< HEAD
+    return this.http.get<Appointment[]>(`${this.base}/he/co/co-tm-core/course/api/appointments`);
+=======
     return this.http.get<Appointment[]>(`${this.base}/he/co/co-tm-core/course/api/appointments`, { withCredentials: true });
+>>>>>>> 7e1f99e (Add Keycloak and New Frontend with BFF authentication implementation)
   }
 }

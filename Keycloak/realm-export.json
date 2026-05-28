@@ -21,8 +21,13 @@
     {
       "clientId": "frontend",
       "publicClient": true,
+<<<<<<< HEAD
+      "redirectUris": ["http://localhost:4200/*", "http://localhost:35441/*"],
+      "webOrigins": ["http://localhost:4200", "http://localhost:35441"],
+=======
       "redirectUris": ["http://localhost:4200/*", "http://localhost:35441/*", "http://localhost:8081/auth/callback", "http://localhost:8081/*"],
       "webOrigins": ["http://localhost:4200", "http://localhost:35441", "http://localhost:8081"],
+>>>>>>> 7e1f99e (Add Keycloak and New Frontend with BFF authentication implementation)
       "directAccessGrantsEnabled": true,
       "protocol": "openid-connect",
       "access": {

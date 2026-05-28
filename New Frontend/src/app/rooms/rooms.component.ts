@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
+import { Router } from '@angular/router';
+import { RoomsService, Appointment } from '../services/rooms.service';
+import { KeycloakService } from '../services/keycloak.service';
+=======
 import { RoomsService, Appointment } from '../services/rooms.service';
 import { AuthService } from '../services/auth.service';
+>>>>>>> 7e1f99e (Add Keycloak and New Frontend with BFF authentication implementation)
 
 @Component({
   selector: 'app-rooms',
@@ -20,7 +26,12 @@ export class RoomsComponent implements OnInit {
 
   constructor(
     private roomsService: RoomsService,
+<<<<<<< HEAD
+    private keycloak: KeycloakService,
+    private router: Router
+=======
     private authService: AuthService
+>>>>>>> 7e1f99e (Add Keycloak and New Frontend with BFF authentication implementation)
   ) {}
 
   ngOnInit() {
@@ -48,6 +59,10 @@ export class RoomsComponent implements OnInit {
   }
 
   logout() {
+<<<<<<< HEAD
+    this.keycloak.logout();
+=======
     this.authService.logout();
+>>>>>>> 7e1f99e (Add Keycloak and New Frontend with BFF authentication implementation)
   }
 }
