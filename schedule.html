@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stundenplananzeige</title>
+  <link rel="stylesheet" href="schedule.css" />
+  <script type="module" src="schedule.js" defer></script>
+</head>
+<body>
+  <div class="schedule-page">
+    <main class="schedule-sheet">
+      <section class="sheet-header">
+        <div>
+          <p class="small-label" id="schedule-top-title">Vorlesungssaal</p>
+          <h1 class="main-title" id="schedule-top-subtitle">Lecture Hall</h1>
+        </div>
+
+        <div class="header-meta">
+          <p class="date-large" id="schedule-date">15.04.2026</p>
+          <p class="date-small" id="schedule-weekday">Mittwoch</p>
+        </div>
+      </section>
+
+      <section class="room-header">
+        <div class="room-header-empty" aria-hidden="true"></div>
+      </section>
+
+      <template id="schedule-entry-template">
+        <article class="schedule-item">
+          <div class="entry-row">
+            <div class="entry-time-column">
+              <span class="entry-time-box" data-entry-start>09:45</span>
+              <span class="entry-time-line"></span>
+              <span class="entry-time-box" data-entry-end>13:00</span>
+            </div>
+            <div class="entry-content">
+              <div class="entry-main">
+                <h3 class="entry-title" data-entry-title>Physik für Ingenieure</h3>
+                <span class="entry-detail" data-entry-detail>F 01-211</span>
+              </div>
+              <p class="entry-subtitle" data-entry-subtitle>Physics for Engineers</p>
+            </div>
+          </div>
+          <div class="entry-note-wrapper">
+            <span class="badge" data-entry-badge></span>
+            <p class="entry-note" data-entry-note></p>
+          </div>
+        </article>
+      </template>
+
+      <section class="schedule-list" id="schedule-list"></section>
+
+      <footer class="schedule-footer">
+        <div class="footer-logo">
+            <img src="HochschuleEsslingen_Logo_invertiert.jpg" alt="Hochschule Esslingen Logo" class="logo-image" width="300" />
+        </div>
+        <div class="footer-text" id="footer-text">F 01-109 · Zuletzt geändert: 15:30</div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
