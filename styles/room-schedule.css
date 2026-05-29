@@ -57,7 +57,7 @@ body {
   padding:24px 48px 20px;
   display:flex; justify-content:space-between; align-items:center;
 }
-.hs-logo img { height:52px; width:auto; display:block; }
+.hs-logo img { height:80px; width:auto; display:block; }
 
 .footer-meta {
   font-size:0.7rem; text-align:center; padding:10px 0 6px;
