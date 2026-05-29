@@ -31,21 +31,21 @@
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
-html,body { height:100%; }
+html { min-height:100%; }
 body {
   background:#000; color:#fff;
   font-family:'DIN Pro';
-  width:100%; max-width:820px; margin:0 auto;
-  min-height:100vh; display:flex; flex-direction:column;
+  width:1200px; min-height:1600px; margin:0 auto;
+  display:flex; flex-direction:column; overflow:auto;
 }
 /* Header */
 .header {
-  padding: 36px 48px 36px;
+  padding: 56px 72px 56px;
   display:flex; justify-content:space-between; align-items:flex-start;
 }
-.room-name    { font-size:2.6rem; font-weight:700; letter-spacing:-1px; line-height:1.05; }
-.room-name-en { font-size:0.8rem; font-weight:400; margin-top:4px; }
-.date         { font-size:1.6rem; font-weight:700; padding-top:4px; }
+.room-name    { font-size:3.6rem; font-weight:700; letter-spacing:-1px; line-height:1.02; }
+.room-name-en { font-size:1.15rem; font-weight:400; margin-top:8px; }
+.date         { font-size:2.2rem; font-weight:700; padding-top:8px; }
 
 .spacer { flex:1; max-height:80px; min-height:40px; }
 
@@ -57,7 +57,7 @@ body {
 
 /* Slots */
 .slot {
-  display:grid; grid-template-columns:120px 1fr;
+  display:grid; grid-template-columns:150px 1fr;
   border-bottom:1px solid #fff;
   min-height: 0;
 }
@@ -75,29 +75,37 @@ body {
 
 .time-col {
   display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
-  padding:22px 20px 22px 48px; gap:8px;
+  padding:32px 28px 32px 72px; gap:12px;
 }
-.time-start { font-size:1.15rem; font-weight:700; }
-.time-end   { font-size:1.15rem; font-weight:700; }
+.time-start { font-size:1.6rem; font-weight:700; }
+.time-end   { font-size:1.6rem; font-weight:700; }
 .time-divider { width:100%; height:2px; background:#fff; }
 
 .content-col {
-  padding:22px 32px 22px 28px;
-  display:flex; flex-direction:column; justify-content:center; gap:5px;
+  padding:32px 48px 32px 40px;
+  display:flex; flex-direction:column; justify-content:center; gap:10px;
 }
-.slot-title    { font-size:1.15rem; font-weight:700; letter-spacing:-0.3px; line-height:1.25; }
-.slot-subtitle { font-size:0.75rem; font-weight:400; }
+.slot-title    { font-size:1.7rem; font-weight:700; letter-spacing:-0.3px; line-height:1.2; }
+.slot-subtitle { font-size:1.1rem; font-weight:400; }
 
 .footer-spacer { flex:2; min-height:60px; }
 
 /* Footer */
+
 .footer {
-  padding:24px 48px 20px;
+  padding:36px 80px 32px;
   display:flex; justify-content:space-between; align-items:center;
 }
-.hs-logo img { height:80px; width:auto; display:block; }
+.hs-logo img { height:140px; width:auto; display:block; }
 
 .footer-meta {
-  font-size:0.7rem; text-align:center; padding:10px 0 6px;
+  font-size:1.1rem; text-align:center; padding:14px 0 10px;
 }
-.status-msg { display:flex; align-items:center; justify-content:center; flex:1; font-size:0.9rem; padding:40px; }
+.status-msg { display:flex; align-items:center; justify-content:center; flex:1; font-size:1.4rem; padding:56px; }
+
+/* QR code / generated images enlargement */
+#qrcode img, #qrcode canvas, #qrcode table, #qrcode > div {
+  width:220px !important;
+  height:220px !important;
+  display:block;
+}
