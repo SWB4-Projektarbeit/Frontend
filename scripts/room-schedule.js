@@ -13,7 +13,7 @@ const DATA = {
     { timeStart: "09:45", timeEnd: "13:00", title: "Softwareentwicklung → F 01.-211", titleEn: "Software Development",  type: "booked"    },
     { timeStart: "09:45", timeEnd: "13:00", title: "FREI - 30 Min",                   titleEn: "FREE - 30 Min",         type: "free"      },
     { timeStart: "09:45", timeEnd: "13:00", title: "Datenbanken",                     titleEn: "Databases",             type: "cancelled" },
-    { timeStart: "09:45", timeEnd: "13:00", title: "FREI - 30 Min",                   titleEn: "FREE - 30 Min",         type: "free"      }
+    { timeStart: "09:45", timeEnd: "13:00", title: "FREI - 30 Min",                  titleEn: "FREE - 30 Min",         type: "free"      },
   ]
 };
 
