@@ -57,8 +57,8 @@ export class RoomSelectionComponent implements OnInit {
       next: (buildings: Building[]) => {
         const flat = buildings.flatMap(b =>
           b.rooms.map(r => ({
-            uid: r.room_uid,
-            name: r.room_name,
+            uid: r.roomUid,
+            name: r.roomName,
             building: b.buildingName,
             floor: r.floor,
             schedule: r.schedule,
