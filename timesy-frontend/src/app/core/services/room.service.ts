@@ -5,7 +5,7 @@ import { Building } from '../../models/room.model';
 
 @Injectable({ providedIn: 'root' })
 export class RoomService {
-  private readonly backendUrl = 'localhost:8215'
+  private readonly backendUrl = 'http://localhost:8215'
   private readonly baseUrl = '/api-timesy';
 
   constructor(private http: HttpClient) {}
