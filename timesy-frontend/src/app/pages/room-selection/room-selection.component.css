@@ -7,7 +7,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* ── Navbar ─────────────────────────────────────────────────── */
+/* Navbar */
 .navbar {
   display: flex;
   align-items: center;
@@ -139,7 +139,7 @@
   color: var(--text);
 }
 
-/* ── Body ────────────────────────────────────────────────────── */
+/* Body */
 .body {
   display: flex;
   flex: 1;
@@ -147,7 +147,7 @@
   transition: font-size 0.15s;
 }
 
-/* ── Sidebar ─────────────────────────────────────────────────── */
+/* Sidebar */
 .sidebar {
   width: 22em;
   flex-shrink: 0;
@@ -259,7 +259,7 @@
   background: var(--bg-card);
 }
 
-/* ── Main ────────────────────────────────────────────────────── */
+/* Main */
 .main-content {
   flex: 1;
   overflow-y: auto;
