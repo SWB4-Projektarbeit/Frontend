@@ -1,21 +1,23 @@
+export interface StatusEntry {
+  status: 'CONFIRMED' | 'RESCHEDULED' | 'CANCELLED';
+  successor: ScheduleEntry | null;
+}
+
 export interface ScheduleEntry {
   name: string;
   startTime: string;
   endTime: string;
-  status: {
-    status: 'CONFIRMED' | 'RESCHEDULED' | 'CANCELLED';
-    successor: ScheduleEntry | null;
-  };
+  status: StatusEntry;
 }
 
 export interface Room {
-  room_uid: number;
-  room_name: string;
-  floor: string;
-  template_uid: string;
-  template_name: string;
-  required_permissions: string[];
+  roomUid: number;
+  roomName: string;
+  templateUid: string;
+  templateName: string;
   schedule: ScheduleEntry[];
+  floor: string;
+  requiredPermissions: string[];
 }
 
 export interface Building {

@@ -5,6 +5,7 @@ import { Building } from '../../models/room.model';
 
 @Injectable({ providedIn: 'root' })
 export class RoomService {
+  private readonly backendUrl = 'localhost:8215'
   private readonly baseUrl = '/api-timesy';
 
   constructor(private http: HttpClient) {}
@@ -13,7 +14,7 @@ export class RoomService {
     let params = new HttpParams();
     if (filters?.building) params = params.set('building', filters.building);
     if (filters?.floor) params = params.set('floor', filters.floor);
-    if (filters?.room_name) params = params.set('room_name', filters.room_name);
-    return this.http.get<Building[]>(`${this.baseUrl}/rooms`, { params });
+    if (filters?.room_name) params = params.set('roomName', filters.room_name);
+    return this.http.get<Building[]>(`${this.backendUrl}${this.baseUrl}/rooms`, { params });
   }
 }
