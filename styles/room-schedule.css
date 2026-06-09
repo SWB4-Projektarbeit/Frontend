@@ -31,12 +31,15 @@
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
-html { min-height:100%; }
+html {
+  min-height:100%;
+}
 body {
   background:#000; color:#fff;
   font-family:'DIN Pro';
-  width:1200px; min-height:1600px; margin:0 auto;
-  display:flex; flex-direction:column; overflow:auto;
+  width:1200px; height:1600px;
+  transform-origin: top left;
+  display:flex; flex-direction:column; overflow:hidden;
 }
 /* Header */
 .header {
@@ -47,19 +50,22 @@ body {
 .room-name-en { font-size:1.15rem; font-weight:400; margin-top:8px; }
 .date         { font-size:2.2rem; font-weight:700; padding-top:8px; }
 
-.spacer { flex:1; max-height:80px; min-height:40px; }
+.spacer { flex: 0 1 80px; min-height:0; }
 
 .schedule {
-  display: grid;
-  grid-template-rows: repeat(auto-fill, 1fr);
-  flex: 1; /* nimmt den restlichen Platz zwischen Header und Footer */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }
 
 /* Slots */
 .slot {
   display:grid; grid-template-columns:150px 1fr;
   border-bottom:1px solid #fff;
+  flex: 1;
   min-height: 0;
+  overflow: hidden;
 }
 .slot:last-child { border-bottom:none; }
 
@@ -91,7 +97,7 @@ body {
 .slot-title    { font-size:1.7rem; font-weight:700; letter-spacing:-0.3px; line-height:1.2; }
 .slot-subtitle { font-size:1.1rem; font-weight:400; }
 
-.footer-spacer { flex:2; min-height:60px; }
+.footer-spacer { flex: 0 1 60px; min-height:0; }
 
 /* Footer */
 

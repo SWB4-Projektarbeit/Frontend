@@ -76,6 +76,15 @@ function generateQR(url) {
   });
 }
 
+function scaleCanvas() {
+  const scale = Math.min(window.innerWidth / 1200, window.innerHeight / 1600);
+  const offsetX = (window.innerWidth - 1200 * scale) / 2;
+  document.body.style.transform = `scale(${scale})`;
+  document.body.style.marginLeft = offsetX + 'px';
+}
+window.addEventListener('resize', scaleCanvas);
+scaleCanvas();
+
 // MOCK - ersetzen mit: fetch('/api/room/F01-109').then(r => r.json()).then(render);
 render(DATA);
 
