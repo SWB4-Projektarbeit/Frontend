@@ -8,12 +8,12 @@ const DATA = {
   },
   date: "15.04.2026",
   slots: [
-    { timeStart: "09:45", timeEnd: "13:00", title: "Physik fuer Ingenieure",          titleEn: "Physics for Engineers", type: "booked"    },
-    { timeStart: "09:45", timeEnd: "13:00", title: "FREI - 30 Min",                   titleEn: "FREE - 30 Min",         type: "active"    },
-    { timeStart: "09:45", timeEnd: "13:00", title: "Softwareentwicklung → F 01.-211", titleEn: "Software Development",  type: "booked"    },
-    { timeStart: "09:45", timeEnd: "13:00", title: "FREI - 30 Min",                   titleEn: "FREE - 30 Min",         type: "free"      },
+    { timeStart: "09:45", timeEnd: "13:00", title: "Physik für Ingenieure",          titleEn: "Physics for Engineers", type: "booked"    },
+    { timeStart: "09:45", timeEnd: "13:00", title: "FREI - 30 Min",                   titleEn: "FREE",         type: "active"    },
+    { timeStart: "09:45", timeEnd: "13:00", title: "Softwareentwicklung",             titleEn: "Software Development",  type: "moved", movedTo: "F 01.-211" },
+    { timeStart: "09:45", timeEnd: "13:00", title: "FREI - 30 Min",                   titleEn: "FREE",         type: "free"      },
     { timeStart: "09:45", timeEnd: "13:00", title: "Datenbanken",                     titleEn: "Databases",             type: "cancelled" },
-    { timeStart: "09:45", timeEnd: "13:00", title: "FREI - 30 Min",                  titleEn: "FREE - 30 Min",         type: "free"      },
+    { timeStart: "09:45", timeEnd: "13:00", title: "FREI - 30 Min",                  titleEn: "FREE",         type: "free"      },
   ]
 };
 
@@ -46,7 +46,9 @@ function render(data) {
         '<span class="time-end">' + esc(s.timeEnd) + '</span>' +
       '</div>' +
       '<div class="content-col">' +
-        '<div class="slot-title">' + esc(s.title) + '</div>' +
+        '<div class="slot-title">' + esc(s.title) +
+          (s.movedTo ? '<span class="slot-moved"><span class="slot-moved-arrow">→</span>' + esc(s.movedTo) + '</span>' : '') +
+        '</div>' +
         (s.titleEn ? '<div class="slot-subtitle">' + esc(s.titleEn) + '</div>' : '') +
       '</div>';
     list.appendChild(el);
