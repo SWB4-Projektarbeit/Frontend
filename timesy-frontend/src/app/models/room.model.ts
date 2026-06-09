@@ -5,15 +5,19 @@ export interface StatusEntry {
 
 export interface ScheduleEntry {
   name: string;
+  nameEn: string;
   startTime: string;
   endTime: string;
+  roomUid: number;
   status: StatusEntry;
 }
 
 export interface Room {
   roomUid: number;
   roomName: string;
-  templateUid: string;
+  roomType: string;
+  roomTypeEn: string;
+  templateUid: number;
   templateName: string;
   schedule: ScheduleEntry[];
   floor: string;
