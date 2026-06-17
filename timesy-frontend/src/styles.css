@@ -5,7 +5,7 @@
 :root, [data-theme="dark"] {
   --bg:        #0d0d0d;
   --bg-card:   #1a1a1a;
-  --border:    #2a2a2a;
+  --border:    #ffffff;
   --border-hover: #555;
   --text:      #ffffff;
   --text-muted: #888888;
@@ -18,8 +18,8 @@
   --bg-card:   #ffffff;
   --border:    #d0d0d0;
   --border-hover: #999;
-  --text:      #111111;
-  --text-muted: #555555;
+  --text:      #3b3b3b;
+  --text-muted: #777777;
   --text-dim:  #aaaaaa;
   --input-bg:  #ffffff;
 }

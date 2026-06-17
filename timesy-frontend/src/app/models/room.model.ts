@@ -34,5 +34,7 @@ export interface FlatRoom {
   name: string;
   building: string;
   floor: string;
+  templateUid: number;
+  templateName: string;
   schedule: ScheduleEntry[];
 }

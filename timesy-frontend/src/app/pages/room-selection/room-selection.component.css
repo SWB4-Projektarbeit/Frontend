@@ -7,138 +7,6 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.5rem;
-  height: 72px;
-  border-bottom: 1px solid var(--border);
-  flex-shrink: 0;
-  background: var(--bg);
-  z-index: 10;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.logo-icon {
-  font-size: 1.5rem;
-  color: var(--text);
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.logo-main {
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--text);
-}
-
-.logo-sub {
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
-}
-
-.hs-logo {
-  height: 46px;
-  width: auto;
-  filter: invert(0);
-  transition: filter 0.2s;
-}
-
-:host-context([data-theme="light"]) .hs-logo {
-  filter: invert(1);
-}
-
-.navbar-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.navbar-group {
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--border);
-}
-
-.navbar-group .nav-btn {
-  border: none;
-  border-radius: 0;
-}
-
-.navbar-group .nav-btn:first-child {
-  border-right: 1px solid var(--border);
-}
-
-.navbar-group .nav-btn:last-child {
-  border-left: 1px solid var(--border);
-}
-
-.zoom-label {
-  padding: 0 0.6rem;
-  font-size: 0.8rem;
-  color: var(--text);
-  min-width: 3rem;
-  text-align: center;
-  user-select: none;
-}
-
-.nav-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  padding: 0.5rem 0.85rem;
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
-  font-size: 0.88rem;
-  cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
-  white-space: nowrap;
-}
-
-.nav-btn:hover:not(:disabled) {
-  border-color: var(--border-hover);
-  background: var(--bg-card);
-}
-
-.nav-btn:disabled {
-  opacity: 0.35;
-  cursor: default;
-}
-
-.nav-btn-text {
-  padding: 0.45rem 0.85rem;
-}
-
-/* Language button */
-.lang-btn {
-  gap: 0.2rem;
-  font-size: 0.8rem;
-}
-
-.lang-sep {
-  color: var(--text-muted);
-}
-
-.lang-active {
-  font-weight: 700;
-  color: var(--text);
-}
-
 /* Body */
 .body {
   display: flex;
@@ -290,12 +158,15 @@
 }
 
 .room-card {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.75em 2em;
   border: 1px solid var(--border);
   margin-bottom: -1px;
+  background: transparent;
+  text-align: left;
   cursor: pointer;
   transition: background 0.15s;
 }

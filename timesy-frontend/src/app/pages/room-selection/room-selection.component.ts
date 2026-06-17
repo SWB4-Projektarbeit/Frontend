@@ -1,16 +1,16 @@
 import { Component, OnInit, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { KeycloakService } from 'keycloak-angular';
+import { Router } from '@angular/router';
 import { RoomService } from '../../core/services/room.service';
 import { I18nService } from '../../core/services/i18n.service';
-import { ThemeService } from '../../core/services/theme.service';
-import { FlatRoom, Building } from '../../models/room.model';
+import { FlatRoom } from '../../models/room.model';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @Component({
   selector: 'app-room-selection',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NavbarComponent],
   templateUrl: './room-selection.component.html',
   styleUrl: './room-selection.component.css',
 })
@@ -47,23 +47,13 @@ export class RoomSelectionComponent implements OnInit {
 
   constructor(
     private roomService: RoomService,
-    private keycloak: KeycloakService,
+    private router: Router,
     public i18n: I18nService,
-    public theme: ThemeService,
   ) {}
 
   ngOnInit() {
-    this.roomService.getRooms().subscribe({
-      next: (buildings: Building[]) => {
-        const flat = buildings.flatMap(b =>
-          b.rooms.map(r => ({
-            uid: r.roomUid,
-            name: r.roomName,
-            building: b.buildingName,
-            floor: r.floor,
-            schedule: r.schedule,
-          }))
-        );
+    this.roomService.getFlatRooms().subscribe({
+      next: (flat: FlatRoom[]) => {
         this.allRooms.set(flat);
         this.buildings.set([...new Set(flat.map(r => r.building))].sort());
         this.floors.set([...new Set(flat.map(r => r.floor))].filter(Boolean).sort());
@@ -79,6 +69,7 @@ export class RoomSelectionComponent implements OnInit {
   toggleFilter(key: string) { this.openFilters[key] = !this.openFilters[key]; }
   setBuilding(v: string) { this.selectedBuilding.set(this.selectedBuilding() === v ? '' : v); }
   setFloor(v: string) { this.selectedFloor.set(this.selectedFloor() === v ? '' : v); }
+  openRoom(roomUid: number) { this.router.navigate(['/rooms', roomUid]); }
 
   zoomIn()  { if (this.zoomLevel() < this.zoomMax) this.zoomLevel.update(z => z + this.zoomStep); }
   zoomOut() { if (this.zoomLevel() > this.zoomMin) this.zoomLevel.update(z => z - this.zoomStep); }
@@ -94,6 +85,4 @@ export class RoomSelectionComponent implements OnInit {
       .filter(s => new Date(s.startTime) > now && s.status.status !== 'CANCELLED')
       .sort((a, b) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime())[0]?.name ?? null;
   }
-
-  logout() { this.keycloak.logout(window.location.origin); }
 }

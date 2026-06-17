@@ -1,0 +1,72 @@
+<div class="layout">
+  <app-navbar
+    [zoomLevel]="zoomLevel()"
+    [zoomMin]="zoomMin"
+    [zoomMax]="zoomMax"
+    (zoomOutRequested)="zoomOut()"
+    (zoomInRequested)="zoomIn()"
+  />
+
+  <main class="detail-view" [style.font-size.%]="zoomLevel()">
+    @if (loading()) {
+      <div class="state-message">Raumdaten werden geladen...</div>
+    } @else if (error()) {
+      <div class="state-message error">{{ error() }}</div>
+    } @else {
+      @if (room(); as selectedRoom) {
+        <section class="page-header">
+          <div class="page-heading">
+            <h1>Template Auswahl</h1>
+            <p>Wählen Sie ein Display-Template</p>
+          </div>
+
+          <div class="header-actions">
+            <button class="secondary-action" type="button" disabled>AKTUELLER RAUMPLAN</button>
+            <button class="secondary-action" type="button" (click)="goBack()">ZURÜCK</button>
+          </div>
+        </section>
+
+        <section class="current-display-section">
+          <h2>Aktuelle Anzeige</h2>
+          <article class="current-display-card">
+            <div class="current-display-preview">
+              <div class="preview-frame">
+                <span class="preview-number">{{ selectedRoom.uid }}</span>
+              </div>
+            </div>
+
+            <div class="current-display-copy">
+              <p class="current-display-kicker">{{ currentDisplay()?.title }}</p>
+              <h3>{{ selectedRoom.name }}</h3>
+              <p class="current-display-meta">{{ selectedRoom.building }} · Etage {{ selectedRoom.floor }}</p>
+              <p class="current-display-template">Aktuell aktiv: {{ currentDisplay()?.template }}</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="template-section">
+          <div class="template-grid">
+            @for (template of templateOptions; track template.number) {
+              <button class="template-card" type="button">
+                <div class="template-preview">
+                  <div class="preview-frame">
+                    <span class="preview-number">{{ template.number }}</span>
+                  </div>
+                </div>
+
+                <div class="template-copy">
+                  <h3>{{ template.title }}</h3>
+                  <p>{{ template.description }}</p>
+                </div>
+              </button>
+            }
+          </div>
+        </section>
+
+        <section class="footer-action">
+          <button class="add-template-button" type="button">Add Template</button>
+        </section>
+      }
+    }
+  </main>
+</div>
