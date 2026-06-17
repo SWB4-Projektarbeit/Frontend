@@ -128,7 +128,7 @@
         </div>
         <div class="room-list">
           @for (room of filteredRooms(); track room.uid) {
-            <div class="room-card">
+            <div class="room-card" (click)="selectRoom(room)" style="cursor:pointer">
               <div class="room-info">
                 <span class="room-name">{{ room.name }}</span>
                 <span class="room-location">{{ room.building }}@if (room.floor) { · {{ i18n.t.filter_floor_prefix }} {{ room.floor }} }</span>

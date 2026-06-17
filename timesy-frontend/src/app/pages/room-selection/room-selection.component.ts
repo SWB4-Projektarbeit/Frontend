@@ -1,6 +1,7 @@
 import { Component, OnInit, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 import { RoomService } from '../../core/services/room.service';
 import { I18nService } from '../../core/services/i18n.service';
@@ -47,6 +48,7 @@ export class RoomSelectionComponent implements OnInit {
 
   constructor(
     private roomService: RoomService,
+    private router: Router,
     private keycloak: KeycloakService,
     public i18n: I18nService,
     public theme: ThemeService,
@@ -61,6 +63,8 @@ export class RoomSelectionComponent implements OnInit {
             name: r.roomName,
             building: b.buildingName,
             floor: r.floor,
+            templateUid: r.templateUid,
+            templateName: r.templateName,
             schedule: r.schedule,
           }))
         );
@@ -94,6 +98,8 @@ export class RoomSelectionComponent implements OnInit {
       .filter(s => new Date(s.startTime) > now && s.status.status !== 'CANCELLED')
       .sort((a, b) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime())[0]?.name ?? null;
   }
+
+  selectRoom(room: FlatRoom) { this.router.navigate(['/rooms', room.uid, 'template']); }
 
   logout() { this.keycloak.logout(window.location.origin); }
 }
