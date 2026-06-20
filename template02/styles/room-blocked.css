@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'DIN Pro';
+  src: url('../../font/DINPro-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url('../../font/DINPro.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url('../../font/DINPro-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url('../../font/DINPro-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'DIN Pro', sans-serif;
+  width: 1200px;
+  height: 1600px;
+  transform-origin: top left;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  padding: 56px 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.room-name    { font-size: 3.6rem; font-weight: 700; letter-spacing: -1px; line-height: 1.02; }
+.room-name-en { font-size: 1.15rem; font-weight: 400; margin-top: 8px; }
+.date         { font-size: 2.2rem; font-weight: 700; padding-top: 8px; }
+
+.center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+
+.hs-logo {
+  height: 180px;
+  width: auto;
+}
+
+.blocked-de {
+  font-size: 9rem;
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.blocked-en {
+  font-size: 3.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.footer {
+  padding: 32px 80px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-meta {
+  font-size: 1.1rem;
+  color: #aaa;
+}
+
+#qrcode img, #qrcode canvas, #qrcode table, #qrcode > div {
+  width: 220px !important;
+  height: 220px !important;
+  display: block;
+}
