@@ -8,6 +8,8 @@ const DATA = {
   },
   exam: {
     subject: "Softwaretechnik",
+    subjectEn: "Software Engineering",
+    examId: "R39.04403",
     timeStart: "09:00",
     timeEnd: "11:00"
   },
@@ -28,7 +30,9 @@ function render(data) {
   document.getElementById('displayDate').textContent = data.date;
   document.getElementById('roomId').textContent      = data.room.id;
   document.getElementById('lastChanged').textContent = data.room.lastChanged;
-  document.getElementById('examSubject').textContent = data.exam.subject;
+  document.getElementById('examSubject').textContent   = data.exam.subject;
+  document.getElementById('examSubjectEn').textContent = data.exam.subjectEn;
+  document.getElementById('examId').textContent        = data.exam.examId;
   document.getElementById('timeStart').textContent   = data.exam.timeStart;
   document.getElementById('timeEnd').textContent     = data.exam.timeEnd;
 

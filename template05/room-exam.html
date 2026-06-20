@@ -18,23 +18,36 @@
 </header>
 
 <main class="center">
-  <img class="hs-logo" src="../assets/HochschuleEsslingen_Logo_invertiert.jpg" alt="HS Esslingen Logo" />
   <div class="exam-label-de">Prüfung</div>
   <div class="exam-label-en">Exam</div>
-  <div class="exam-subject" id="examSubject">-</div>
-  <div class="exam-time">
-    <span id="timeStart">-</span>&thinsp;&ndash;&thinsp;<span id="timeEnd">-</span>
+  <div class="exam-row">
+    <div class="time-col">
+      <span class="time-start" id="timeStart">-</span>
+      <div class="time-divider"></div>
+      <span class="time-end" id="timeEnd">-</span>
+    </div>
+    <div class="content-col">
+      <div class="exam-subject" id="examSubject">-</div>
+      <div class="exam-subject-en" id="examSubjectEn">-</div>
+    </div>
+    <div class="id-col">
+      <div class="exam-id" id="examId">-</div>
+    </div>
   </div>
-  <div class="silence-de">Bitte Ruhe!</div>
+  <div class="silence-de">Ruhe Bitte!</div>
   <div class="silence-en">Silence Please!</div>
 </main>
 
 <footer class="footer">
-  <div class="footer-meta">
-    <span id="roomId">-</span> &middot; Zuletzt ge&auml;ndert: <span id="lastChanged">-</span>
+  <div class="hs-logo">
+    <img src="../assets/HochschuleEsslingen_Logo_invertiert.jpg" alt="HS Esslingen Logo" />
   </div>
   <div id="qrcode"></div>
 </footer>
+
+<div class="footer-meta">
+  <span id="roomId">-</span> &middot; Zuletzt ge&auml;ndert: <span id="lastChanged">-</span>
+</div>
 
 <script src="scripts/room-exam.js"></script>
 </body>
