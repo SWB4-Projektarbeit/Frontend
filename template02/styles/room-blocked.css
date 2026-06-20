@@ -51,9 +51,9 @@ body {
   align-items: flex-start;
 }
 
-.room-name    { font-size: 3.6rem; font-weight: 700; letter-spacing: -1px; line-height: 1.02; }
-.room-name-en { font-size: 1.15rem; font-weight: 400; margin-top: 8px; }
-.date         { font-size: 2.2rem; font-weight: 700; padding-top: 8px; }
+.room-name    { font-size: 5rem; font-weight: 700; letter-spacing: -1px; line-height: 1.02; }
+.room-name-en { font-size: 1.8rem; font-weight: 400; margin-top: 8px; }
+.date         { font-size: 3.2rem; font-weight: 700; padding-top: 8px; }
 
 .center {
   flex: 1;
@@ -65,7 +65,7 @@ body {
 }
 
 .hs-logo {
-  height: 180px;
+  height: 300px;
   width: auto;
 }
 
@@ -90,12 +90,12 @@ body {
 }
 
 .footer-meta {
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   color: #aaa;
 }
 
 #qrcode img, #qrcode canvas, #qrcode table, #qrcode > div {
-  width: 220px !important;
-  height: 220px !important;
+  width: 300px !important;
+  height: 300px !important;
   display: block;
 }
