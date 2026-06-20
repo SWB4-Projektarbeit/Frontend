@@ -35,7 +35,7 @@
 body {
   background: #000;
   color: #fff;
-  font-family: 'DIN Pro', sans-serif;
+  font-family: 'DIN Pro';
   width: 1200px;
   height: 1600px;
   transform-origin: top left;
