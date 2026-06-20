@@ -1,56 +1,83 @@
 /**
  * render_schedule.js
  * ------------------
- * Macht einen 1200x1600 Screenshot der Raumanzeige und speichert ihn als PNG.
+ * Macht einen 1200x1600 Screenshot eines Templates und speichert ihn als PNG.
  *
  * Voraussetzungen (einmalig):
  *   npm install playwright
  *   npx playwright install chromium
  *
  * Verwendung:
- *   node render_schedule.js
- *   node render_schedule.js --input /pfad/zu/room-schedule.html
- *   node render_schedule.js --input /pfad/zu/room-schedule.html --output mein-raum.png
+ *   node render_schedule.js --template 1
+ *   node render_schedule.js --template 2
+ *   node render_schedule.js --template 1 --output mein-raum.png
  */
 
+/*
+Verwendung jetzt:
+
+
+node render_schedule.js --template 1   # → template01-output.png
+node render_schedule.js --template 2   # → template02-output.png
+
+# Optional eigener Output-Name:
+node render_schedule.js --template 1 --output mein-raum.png
+Neues Template hinzufügen: einfach in der TEMPLATES-Map oben eintragen:
+
+
+const TEMPLATES = {
+  1: 'template01/room-schedule.html',
+  2: 'template02/room-blocked.html',
+  3: 'template03/...',   // ← hier ergänzen
+};
+
+ */
 const { chromium } = require('playwright');
 const path = require('path');
 
-// ── Konfiguration ────────────────────────────────────────────────────────────
-const CONFIG = {
-  input:  process.argv.includes('--input')
-            ? process.argv[process.argv.indexOf('--input') + 1]
-            : 'room-schedule.html',
-
-  output: process.argv.includes('--output')
-            ? process.argv[process.argv.indexOf('--output') + 1]
-            : 'room-schedule.png',
-
-  width:  1200,
-  height: 1600,
-  waitMs: 1500,   // Zeit fuer QR-Code + Fonts
+// ── Templates ────────────────────────────────────────────────────────────────
+const TEMPLATES = {
+  1: 'template01/room-schedule.html',
+  2: 'template02/room-blocked.html',
 };
 // ─────────────────────────────────────────────────────────────────────────────
+
+function getArg(flag) {
+  const idx = process.argv.indexOf(flag);
+  return idx !== -1 ? process.argv[idx + 1] : null;
+}
+
+const templateId = getArg('--template') ?? '1';
+const templateFile = TEMPLATES[templateId];
+
+if (!templateFile) {
+  console.error(`[render] Unbekanntes Template: "${templateId}". Verfügbar: ${Object.keys(TEMPLATES).join(', ')}`);
+  process.exit(1);
+}
+
+const CONFIG = {
+  input:  getArg('--input') ?? templateFile,
+  output: getArg('--output') ?? `template${templateId.padStart(2, '0')}-output.png`,
+  width:  1200,
+  height: 1600,
+  waitMs: 1500,
+};
 
 async function renderToPng() {
   const inputPath  = path.resolve(CONFIG.input);
   const outputPath = path.resolve(CONFIG.output);
   const fileUrl    = `file://${inputPath}`;
 
-  console.log(`[render] Input:   ${inputPath}`);
-  console.log(`[render] Output:  ${outputPath}`);
-  console.log(`[render] Groesse: ${CONFIG.width}x${CONFIG.height}px`);
+  console.log(`[render] Template: ${templateId} (${CONFIG.input})`);
+  console.log(`[render] Output:   ${outputPath}`);
+  console.log(`[render] Größe:    ${CONFIG.width}x${CONFIG.height}px`);
 
   const browser = await chromium.launch();
 
   try {
     const page = await browser.newPage();
 
-    await page.setViewportSize({
-      width:  CONFIG.width,
-      height: CONFIG.height,
-    });
-
+    await page.setViewportSize({ width: CONFIG.width, height: CONFIG.height });
     await page.goto(fileUrl, { waitUntil: 'networkidle' });
     await page.waitForTimeout(CONFIG.waitMs);
 

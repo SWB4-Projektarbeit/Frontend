@@ -5,10 +5,17 @@ timesy-frontend/.angular/
 # Dependencies
 timesy-frontend/node_modules/
 node_modules/
+package.json
+package-lock.json
+timesy-frontend/package.json
+timesy-frontend/package-lock.json
 
 # Environment & local config
 timesy-frontend/.env
 timesy-frontend/.env.*
+
+# Screenshots
+*-output.png
 
 # IDE & OS
 .vscode/
