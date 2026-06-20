@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prüfung</title>
+  <link rel="stylesheet" href="styles/room-exam.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <div>
+    <div class="room-name" id="roomName">-</div>
+    <div class="room-name-en" id="roomNameEn">-</div>
+  </div>
+  <div class="date" id="displayDate">-</div>
+</header>
+
+<main class="center">
+  <img class="hs-logo" src="../assets/HochschuleEsslingen_Logo_invertiert.jpg" alt="HS Esslingen Logo" />
+  <div class="exam-label-de">Prüfung</div>
+  <div class="exam-label-en">Exam</div>
+  <div class="exam-subject" id="examSubject">-</div>
+  <div class="exam-time">
+    <span id="timeStart">-</span>&thinsp;&ndash;&thinsp;<span id="timeEnd">-</span>
+  </div>
+  <div class="silence-de">Bitte Ruhe!</div>
+  <div class="silence-en">Silence Please!</div>
+</main>
+
+<footer class="footer">
+  <div class="footer-meta">
+    <span id="roomId">-</span> &middot; Zuletzt ge&auml;ndert: <span id="lastChanged">-</span>
+  </div>
+  <div id="qrcode"></div>
+</footer>
+
+<script src="scripts/room-exam.js"></script>
+</body>
+</html>

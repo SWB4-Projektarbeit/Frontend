@@ -28,7 +28,8 @@ Neues Template hinzufügen: einfach in der TEMPLATES-Map oben eintragen:
 const TEMPLATES = {
   1: 'template01/room-schedule.html',
   2: 'template02/room-blocked.html',
-  3: 'template03/...',   // ← hier ergänzen
+  3: 'template03/room-vacation.html',
+  4: 'template04/...',   // ← hier ergänzen
 };
 
  */
@@ -39,6 +40,9 @@ const path = require('path');
 const TEMPLATES = {
   1: 'template01/room-schedule.html',
   2: 'template02/room-blocked.html',
+  3: 'template03/room-vacation.html',
+  4: 'template04/room-maintenance.html',
+  5: 'template05/room-exam.html',
 };
 // ─────────────────────────────────────────────────────────────────────────────
 
