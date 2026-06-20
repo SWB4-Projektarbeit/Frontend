@@ -1,0 +1,17 @@
+# Angular build output
+timesy-frontend/dist/
+timesy-frontend/.angular/
+
+# Dependencies
+timesy-frontend/node_modules/
+node_modules/
+
+# Environment & local config
+timesy-frontend/.env
+timesy-frontend/.env.*
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
