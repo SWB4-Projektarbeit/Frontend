@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Störung</title>
+  <link rel="stylesheet" href="styles/room-offline.css">
+</head>
+<body>
+
+<main class="center">
+  <img class="hs-logo" src="../assets/HochschuleEsslingen_Logo_invertiert.jpg" alt="HS Esslingen Logo" />
+  <div class="offline-de">Störung</div>
+  <div class="offline-en">System Unavailable</div>
+  <div class="offline-msg">Das Display ist vorübergehend nicht verfügbar.</div>
+  <div class="offline-msg-en">This display is temporarily unavailable.</div>
+</main>
+
+<script>
+  function scaleCanvas() {
+    const scale   = Math.min(window.innerWidth / 1200, window.innerHeight / 1600);
+    const offsetX = (window.innerWidth - 1200 * scale) / 2;
+    document.body.style.transform  = `scale(${scale})`;
+    document.body.style.marginLeft = offsetX + 'px';
+  }
+  window.addEventListener('resize', scaleCanvas);
+  scaleCanvas();
+</script>
+</body>
+</html>
