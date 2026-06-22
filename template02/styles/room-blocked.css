@@ -95,7 +95,7 @@ body {
 }
 
 #qrcode img, #qrcode canvas, #qrcode table, #qrcode > div {
-  width: 300px !important;
-  height: 300px !important;
+  width: 220px !important;
+  height: 220px !important;
   display: block;
 }

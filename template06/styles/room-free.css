@@ -69,17 +69,19 @@ body {
   width: auto;
 }
 
-.maintenance-de {
-  font-size: 9rem;
+.free-de {
+  font-size: 6rem;
   font-weight: 400;
   letter-spacing: -2px;
   line-height: 1;
+  text-align: center;
 }
 
-.maintenance-en {
+.free-en {
   font-size: 3.6rem;
   font-weight: 700;
   letter-spacing: -0.5px;
+  text-align: center;
 }
 
 .footer {
@@ -91,7 +93,6 @@ body {
 
 .footer-meta {
   font-size: 1.8rem;
-  color: #fff;
 }
 
 #qrcode img, #qrcode canvas, #qrcode table, #qrcode > div {

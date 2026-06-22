@@ -43,6 +43,7 @@ const TEMPLATES = {
   3: 'template03/room-vacation.html',
   4: 'template04/room-maintenance.html',
   5: 'template05/room-exam.html',
+  6: 'template06/room-free.html',
 };
 // ─────────────────────────────────────────────────────────────────────────────
 

@@ -34,8 +34,8 @@ function generateQR(url) {
   el.innerHTML = '';
   new QRCode(el, {
     text: url,
-    width: 300,
-    height: 300,
+    width: 220,
+    height: 220,
     colorDark: '#ffffff',
     colorLight: '#000000',
     correctLevel: QRCode.CorrectLevel.M
