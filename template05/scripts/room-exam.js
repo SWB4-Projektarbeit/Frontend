@@ -7,8 +7,8 @@ const DATA = {
     scheduleUrl: "https://www3.hs-esslingen.de/qislsf/rds?state=wplan&act=Raum&pool=Raum&raum.rgid=318"
   },
   exam: {
-    subject: "Softwaretechnik",
-    subjectEn: "Software Engineering",
+    subject: "Grundlagen der Elektrotechnik und Informationstechnik",
+    subjectEn: "Fundamentals of Electrical Engineering and Information Technology",
     examId: "R39.04403",
     timeStart: "09:00",
     timeEnd: "11:00"
@@ -24,6 +24,14 @@ function getRoomUid() {
   return null;
 }
 
+function fitText(el, maxRem, minRem = 1.6) {
+  if (!el || el.clientWidth === 0) return;
+  el.style.fontSize = maxRem + 'rem';
+  while (el.scrollWidth > el.clientWidth && parseFloat(el.style.fontSize) > minRem) {
+    el.style.fontSize = (parseFloat(el.style.fontSize) - 0.1).toFixed(1) + 'rem';
+  }
+}
+
 function render(data) {
   document.getElementById('roomName').textContent    = data.room.name;
   document.getElementById('roomNameEn').textContent  = data.room.nameEn;
@@ -35,6 +43,11 @@ function render(data) {
   document.getElementById('examId').textContent        = data.exam.examId;
   document.getElementById('timeStart').textContent   = data.exam.timeStart;
   document.getElementById('timeEnd').textContent     = data.exam.timeEnd;
+
+  requestAnimationFrame(() => {
+    fitText(document.getElementById('examSubject'), 3.6);
+    fitText(document.getElementById('examSubjectEn'), 2.2);
+  });
 
   if (data.room.scheduleUrl) {
     generateQR(data.room.scheduleUrl);

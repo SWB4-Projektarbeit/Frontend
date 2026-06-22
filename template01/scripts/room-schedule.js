@@ -8,7 +8,7 @@ const DATA = {
   },
   date: "15.04.2026",
   slots: [
-    { timeStart: "09:45", timeEnd: "13:00", title: "Physik für Ingenieure",          titleEn: "Physics for Engineers", type: "booked"    },
+    { timeStart: "09:45", timeEnd: "13:00", title: "Grundlagen der Elektrotechnik und Informationstechnik", titleEn: "Fundamentals of Electrical Engineering and Information Technology", type: "booked" },
     { timeStart: "09:45", timeEnd: "13:00", title: "FREI - 30 Min",                   titleEn: "FREE",         type: "active"    },
     { timeStart: "09:45", timeEnd: "13:00", title: "Softwareentwicklung",             titleEn: "Software Development",  type: "moved", movedTo: "F 01.-211" },
     { timeStart: "09:45", timeEnd: "13:00", title: "FREI - 30 Min",                   titleEn: "FREE",         type: "free"      },
@@ -29,6 +29,14 @@ function esc(s) {
   const d = document.createElement('div');
   d.textContent = s ?? '';
   return d.innerHTML;
+}
+
+function fitText(el, maxRem, minRem = 1.2) {
+  if (!el || el.clientWidth === 0) return;
+  el.style.fontSize = maxRem + 'rem';
+  while (el.scrollWidth > el.clientWidth && parseFloat(el.style.fontSize) > minRem) {
+    el.style.fontSize = (parseFloat(el.style.fontSize) - 0.1).toFixed(1) + 'rem';
+  }
 }
 
 function render(data) {
@@ -60,6 +68,11 @@ function render(data) {
         (s.titleEn ? '<div class="slot-subtitle">' + esc(s.titleEn) + '</div>' : '') +
       '</div>';
     list.appendChild(el);
+  });
+
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.slot-title').forEach(el => fitText(el, 2.5));
+    document.querySelectorAll('.slot-subtitle').forEach(el => fitText(el, 1.7));
   });
 }
 

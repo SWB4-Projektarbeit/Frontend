@@ -51,9 +51,9 @@ body {
   align-items: flex-start;
 }
 
-.room-name    { font-size: 5rem; font-weight: 700; letter-spacing: -1px; line-height: 1.02; }
-.room-name-en { font-size: 1.8rem; font-weight: 400; margin-top: 8px; }
-.date         { font-size: 3.2rem; font-weight: 700; padding-top: 8px; }
+.room-name    { font-size: 5.5rem; font-weight: 700; letter-spacing: -1px; line-height: 1.02; }
+.room-name-en { font-size: 2rem; font-weight: 400; margin-top: 8px; }
+.date         { font-size: 3.6rem; font-weight: 700; padding-top: 8px; }
 
 .center {
   flex: 1;
@@ -65,14 +65,14 @@ body {
 }
 
 .exam-label-de {
-  font-size: 7rem;
+  font-size: 8rem;
   font-weight: 700;
   letter-spacing: -2px;
   line-height: 1;
 }
 
 .exam-label-en {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 400;
   letter-spacing: -0.5px;
   color: #fff;
@@ -97,7 +97,7 @@ body {
 }
 
 .time-start,
-.time-end   { font-size: 2.4rem; font-weight: 700; line-height: 1; }
+.time-end   { font-size: 2.7rem; font-weight: 700; line-height: 1; }
 .time-divider { width: 100%; height: 2px; background: #fff; }
 
 .content-col {
@@ -111,14 +111,14 @@ body {
 }
 
 .exam-subject {
-  font-size: 3.2rem;
+  font-size: 3.6rem;
   font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1;
 }
 
 .exam-subject-en {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 400;
   color: #fff;
   letter-spacing: -0.3px;
@@ -132,21 +132,21 @@ body {
 }
 
 .exam-id {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 400;
   color: #fff;
   letter-spacing: 1px;
 }
 
 .silence-de {
-  font-size: 3.2rem;
+  font-size: 3.6rem;
   font-weight: 700;
   letter-spacing: -0.5px;
   margin-top: 16px;
 }
 
 .silence-en {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 400;
   color: #fff;
   margin-top: -16px;
@@ -162,7 +162,7 @@ body {
 .hs-logo img { height: 140px; width: auto; display: block; }
 
 .footer-meta {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   text-align: center;
   padding: 14px 0 10px;
 }
