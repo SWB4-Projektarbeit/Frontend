@@ -75,7 +75,7 @@ function render(data) {
     document.querySelectorAll('.slot-subtitle').forEach(el => fitText(el, 1.7));
   });
 
-  consol.log('schedule rendered');
+  console.log('template rendered');
 }
 
 function generateQR(url) {
