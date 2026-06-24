@@ -74,6 +74,8 @@ function render(data) {
     document.querySelectorAll('.slot-title').forEach(el => fitText(el, 2.5));
     document.querySelectorAll('.slot-subtitle').forEach(el => fitText(el, 1.7));
   });
+
+  consol.log('schedule rendered');
 }
 
 function generateQR(url) {

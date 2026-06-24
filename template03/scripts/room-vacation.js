@@ -27,6 +27,8 @@ function render(data) {
   if (data.room.scheduleUrl) {
     generateQR(data.room.scheduleUrl);
   }
+
+  consol.log('schedule rendered');
 }
 
 function generateQR(url) {
