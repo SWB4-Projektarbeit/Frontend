@@ -2,7 +2,7 @@ import { Component, OnInit, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { KeycloakService } from 'keycloak-angular';
+import { AuthService } from '../../core/services/auth.service';
 import { RoomService } from '../../core/services/room.service';
 import { I18nService } from '../../core/services/i18n.service';
 import { ThemeService } from '../../core/services/theme.service';
@@ -49,7 +49,7 @@ export class RoomSelectionComponent implements OnInit {
   constructor(
     private roomService: RoomService,
     private router: Router,
-    private keycloak: KeycloakService,
+    private authService: AuthService,
     public i18n: I18nService,
     public theme: ThemeService,
   ) {}
@@ -101,5 +101,5 @@ export class RoomSelectionComponent implements OnInit {
 
   selectRoom(room: FlatRoom) { this.router.navigate(['/rooms', room.uid, 'template']); }
 
-  logout() { this.keycloak.logout(window.location.origin); }
+  logout() { this.authService.logout(); }
 }
