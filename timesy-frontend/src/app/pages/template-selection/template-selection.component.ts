@@ -6,6 +6,7 @@ import { RoomService } from '../../core/services/room.service';
 import { I18nService } from '../../core/services/i18n.service';
 import { ThemeService } from '../../core/services/theme.service';
 import { FlatRoom } from '../../models/room.model';
+import {AuthService} from "../../core/services/auth.service";
 
 type TemplateOption = {
   number: string;
@@ -54,7 +55,7 @@ export class TemplateSelectionComponent implements OnInit {
     private roomService: RoomService,
     private router: Router,
     private route: ActivatedRoute,
-    private keycloak: KeycloakService,
+    private authService: AuthService,
     public i18n: I18nService,
     public theme: ThemeService,
   ) {}
@@ -92,5 +93,5 @@ export class TemplateSelectionComponent implements OnInit {
 
   goBack() { this.router.navigate(['/rooms']); }
 
-  logout() { this.keycloak.logout(window.location.origin); }
+  logout() { this.authService.logout(); }
 }
